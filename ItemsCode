@@ -1,0 +1,99 @@
+Public Class Form1
+
+    Private Sub btnUseItem_Click(sender As Object, e As EventArgs) Handles btnUseItem.Click
+
+        Dim strCurrentItem As String
+        Dim strCurrentArmor As String
+
+        strCurrentItem = PerformEquipCommand()
+        strCurrentArmor = PerformEquipCommand()
+
+        Select Case strCurrentItem
+            Case "Rock"
+                MessageBox.Show("Rock Equipped: Damage * 1.5", "Item Equipped")
+                Me.lblEquippedItem.Text = "Equipped Item: " & strCurrentItem
+                intWeapon = 2
+            Case "Shark Tooth"
+                MessageBox.Show("Shark Tooth Equipped: Damage * 2", "Item Equipped")
+                Me.lblEquippedItem.Text = "Equipped Item: " & strCurrentItem
+                intWeapon = 3
+            Case "Harpoon"
+                MessageBox.Show("Harpoon Equipped: Damage * 2.5", "Item Equipped")
+                Me.lblEquippedItem.Text = "Equipped Item: " & strCurrentItem
+                intWeapon = 4
+            Case "Trident"
+                MessageBox.Show("Trident Equipped: Damage * 3", "Item Equipped")
+                Me.lblEquippedItem.Text = "Equipped Item: " & strCurrentItem
+                intWeapon = 5
+        End Select
+
+        Select Case strCurrentArmor
+            Case "Rubber Gloves"
+                MessageBox.Show("Rubber Gloves Equipped: Immunity to electricity", "Item Equipped")
+                Me.lblEquippedArmor.Text = "Equipped Armor: " & strCurrentArmor
+                strArmorType = "RUBBERGLOVES"
+            Case "Serpent Scales"
+                MessageBox.Show("Serpent Scales Equipped: Health + 150", "Item Equipped")
+                Me.lblEquippedArmor.Text = "Equipped Armor: " & strCurrentArmor
+                strArmorType = "SERPENTSCALES"
+        End Select
+
+
+
+
+    End Sub
+
+    'ITEMS-------------------------------------------------------------------------------------
+    '------------------------------------------------------------------------------------------------
+    Private Sub lblRubberGloves_Click(sender As Object, e As EventArgs) Handles lblRubberGloves.Click
+        ItemsList.Items.Add("Rubber Gloves")
+        Me.lblRubberGloves.Visible = False
+    End Sub
+
+    Private Sub lblSerpentScales_Click(sender As Object, e As EventArgs) Handles lblSerpentScales.Click
+        ItemsList.Items.Add("Serpent Scales")
+        Me.lblSerpentScales.Visible = False
+    End Sub
+
+    Private Sub lblSharkTooth_Click(sender As Object, e As EventArgs) Handles lblSharkTooth.Click
+        ItemsList.Items.Add("Shark Tooth")
+        Me.lblSharkTooth.Visible = False
+    End Sub
+
+    Private Sub lblRock_Click(sender As Object, e As EventArgs) Handles lblRock.Click
+        ItemsList.Items.Add("Rock")
+        Me.lblRock.Visible = False
+    End Sub
+
+    Private Sub lblHarpoon_Click(sender As Object, e As EventArgs) Handles lblHarpoon.Click
+        ItemsList.Items.Add("Harpoon")
+        Me.lblHarpoon.Visible = False
+    End Sub
+
+    Private Sub lblWorm_Click(sender As Object, e As EventArgs) Handles lblWorm.Click
+        ItemsList.Items.Add("Worm")
+        Me.lblWorm.Visible = False
+    End Sub
+
+    Private Sub lblKey_Click(sender As Object, e As EventArgs) Handles lblKey.Click
+        ItemsList.Items.Add("Key")
+        Me.lblKey.Visible = False
+    End Sub
+
+    Private Sub lblTrident_Click(sender As Object, e As EventArgs) Handles lblTrident.Click
+        ItemsList.Items.Add("Trident")
+        Me.lblTrident.Visible = False
+    End Sub
+    '----------------------------------------------------------------------------------------
+    '-------------------------------------------------------------------------------------------
+
+    Public Function PerformEquipCommand() As String
+
+        Dim strSelectedItem As String
+        strSelectedItem = ItemsList.SelectedItem
+        Return strSelectedItem
+
+    End Function
+
+
+End Class
